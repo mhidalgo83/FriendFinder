@@ -1,5 +1,5 @@
 
-var friends = [
+var friendsArray = [
     {
         name: "Ahmed",
         photo: "https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwiQlIbNq7_cAhWT7Z8KHRDOAmwQjRx6BAgBEAU&url=https%3A%2F%2Fwww.pexels.com%2Fsearch%2Fpeople%2F&psig=AOvVaw0f_oXnV8bdhnScXQdehqDf&ust=1532782951216458",
@@ -18,3 +18,4 @@ var friends = [
     }
 ];
 
+module.exports = friendsArray;
