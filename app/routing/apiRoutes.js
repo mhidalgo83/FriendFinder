@@ -6,6 +6,10 @@ module.exports = function (app) {
         res.json(friendsArray);
     })
 
+    app.post("/api/friends", function (req, res){
 
-
+        console.log(req.body["scores[]"]);
+        friendsArray.push(req.body);
+        res.end();
+    })
 }

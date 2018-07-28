@@ -3,6 +3,12 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
         crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
     <title>Friend Finder Survey</title>
 </head>
 
@@ -25,7 +31,7 @@
     <h2>Question 1</h2>
     <p>You think that pineapple isn't an acceptable pizza topping.</p>
     <div class="input-group mb-3">
-        <select id="inputGroupSelect01">
+        <select id="questionOne">
             <option selected>Choose an option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -37,7 +43,7 @@
     <h2>Question 2</h2>
     <p>Thin crust is the best.</p>
     <div class="input-group mb-3">
-        <select id="inputGroupSelect01">
+        <select id="questionTwo">
             <option selected>Choose an option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -49,7 +55,7 @@
     <h2>Question 3</h2>
     <p>When ordering pizza for a group, you take others' feelings about anchovies into account.</p>
     <div class="input-group mb-3">
-        <select id="inputGroupSelect01">
+        <select id="questionThree">
             <option selected>Choose an option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -61,7 +67,7 @@
     <h2>Question 4</h2>
     <p>Stuffed crust pizza has entirely too much cheese.</p>
     <div class="input-group mb-3">
-        <select id="inputGroupSelect01">
+        <select id="questionFour">
             <option selected>Choose an option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -73,7 +79,7 @@
     <h2>Question 5</h2>
     <p>Beverage selection (beer, wine, etc.) has a bearing on what restaurants you will eat at.</p>
     <div class="input-group mb-3">
-        <select id="inputGroupSelect01">
+        <select id="questionFive">
             <option selected>Choose an option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -85,7 +91,7 @@
     <h2>Question 6</h2>
     <p>You prefer parmesan cheese on your pizza.</p>
     <div class="input-group mb-3">
-        <select id="inputGroupSelect01">
+        <select id="questionSix">
             <option selected>Choose an option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -97,7 +103,7 @@
     <h2>Question 7</h2>
     <p>Breakast pizza shouldn't be a thing.</p>
     <div class="input-group mb-3">
-        <select id="inputGroupSelect01">
+        <select id="questionSeven">
             <option selected>Choose an option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -109,7 +115,7 @@
     <h2>Question 8</h2>
     <p>Mac 'n' Cheese pizza has too many carbs.</p>
     <div class="input-group mb-3">
-        <select id="inputGroupSelect01">
+        <select id="questionEight">
             <option selected>Choose an option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -121,7 +127,7 @@
     <h2>Question 9</h2>
     <p>Cheeseburgers (either whole or the ingredients) do not belong on a pizza.</p>
     <div class="input-group mb-3">
-        <select id="inputGroupSelect01">
+        <select id="questionNine">
             <option selected>Choose an option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -133,7 +139,7 @@
     <h2>Question 10</h2>
     <p>Using a wood-fired oven is the best way to cook a pizza.</p>
     <div class="input-group mb-3">
-        <select id="inputGroupSelect01">
+        <select id="questionTen">
             <option selected>Choose an option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -142,36 +148,69 @@
             <option value="5">5 (Strongly Agree)</option>
         </select>
     </div>
-    <input class="btn btn-primary" type="submit" value="Submit" data-toggle="modal" data-target="#exampleModal">
+    <button class="btn btn-primary" id="submit" type="submit" value="Submit">Submit</button>
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <script>
+        $("#submit").on("click", function (event) {
+            event.preventDefault();
 
 
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
-        crossorigin="anonymous"></script>
+            var newFriend = {
+                name: $("#name").val().trim(),
+                photo: $("#photo").val().trim(),
+                scores: [
+                    $("#questionOne").val(),
+
+                    $("#questionTwo").val(),
+
+                    $("#questionThree").val(),
+
+                    $("#questionFour").val(),
+
+                    $("#questionFive").val(),
+
+                    $("#questionSix").val(),
+
+                    $("#questionSeven").val(),
+
+                    $("#questionSeven").val(),
+
+                    $("#questionSeven").val(),
+
+                    $("#questionSeven").val()
+
+                ]   
+            }
+            console.log(newFriend);
+            for (var i = 0; i < newFriend.scores.length; i++) {
+                if ($("#name").val() === "" && $("#photo").val() === "" && newFriend.scores[i] === "Choose an option") {
+                    alert("Please enter all fields");
+                    return false;
+                }
+            }
+            var currentUrl = window.location.origin;
+
+            $.post(currentUrl + "/api/friends", newFriend, function (data) {
+                $("#name").val("");
+                $("#photo").val("");
+                $("#questionOne").val("Choose an option");
+                $("#questionTwo").val("Choose an option");
+                $("#questionThree").val("Choose an option");
+                $("#questionFour").val("Choose an option");
+                $("#questionFive").val("Choose an option");
+                $("#questionSix").val("Choose an option");
+                $("#questionSeven").val("Choose an option");
+                $("#questionEight").val("Choose an option");
+                $("#questionNine").val("Choose an option");
+                $("#questionTen").val("Choose an option");
+            });
+            return false;
+
+        });
+    </script>
+
+
 </body>
 
 </html>
