@@ -150,6 +150,26 @@
     </div>
     <button class="btn btn-primary" id="submit" type="submit" value="Submit">Submit</button>
 
+    <!-- Modal -->
+		<!-- Modal after survey completion -->
+		<div id="friendModal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h3 class="modal-title">Your Pizza Buddy</h1>
+					</div>
+					<div class="modal-body">
+						<h2 id="pizzaBuddy"></h2>
+						<img id="friendPhoto" src="#">
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
 
@@ -176,9 +196,9 @@
 
                 ]
             }
-            
-            if ($("#name").val() === "" && $("#photo").val() === "")  {
-                alert ("Please enter all fields");
+
+            if ($("#name").val() === "" && $("#photo").val() === "") {
+                alert("Please enter all fields");
                 return false;
             }
             for (var i = 0; i < newFriend.scores.length; i++) {
@@ -191,6 +211,9 @@
             var currentUrl = window.location.origin;
 
             $.post(currentUrl + "/api/friends", newFriend, function (data) {
+                $("#pizzaBuddy").text(data.name);
+				$("#friendPhoto").attr("src", data.photo);
+				$("#friendModal").modal("toggle");
                 $("#name").val("");
                 $("#photo").val("");
                 $("#questionOne").val("Choose an option");
@@ -203,7 +226,7 @@
                 $("#questionEight").val("Choose an option");
                 $("#questionNine").val("Choose an option");
                 $("#questionTen").val("Choose an option");
-            });
+            })
         });
     </script>
 </body>
