@@ -19,11 +19,11 @@
         <h2>About You</h2>
         <div class="form-group">
             <label for="name">Name (Required)</label>
-            <input type="text" class="form-control" id="name">
+            <input type="text" class="form-control" id="name" required>
         </div>
         <div class="form-group">
             <label for="photo">Link to Photo Image (Required)</label>
-            <input type="url" class="form-control" id="photo">
+            <input type="url" class="form-control" id="photo" required>
         </div>
     </form>
     <hr class="my-4">
@@ -150,45 +150,44 @@
     </div>
     <button class="btn btn-primary" id="submit" type="submit" value="Submit">Submit</button>
 
+
+
+
     <script>
         $("#submit").on("click", function (event) {
             event.preventDefault();
 
 
-
+            console.log("../data/friends.js");
             var newFriend = {
                 name: $("#name").val().trim(),
                 photo: $("#photo").val().trim(),
                 scores: [
                     $("#questionOne").val(),
-
                     $("#questionTwo").val(),
-
                     $("#questionThree").val(),
-
                     $("#questionFour").val(),
-
                     $("#questionFive").val(),
-
                     $("#questionSix").val(),
-
                     $("#questionSeven").val(),
+                    $("#questionEight").val(),
+                    $("#questionNine").val(),
+                    $("#questionTen").val()
 
-                    $("#questionSeven").val(),
-
-                    $("#questionSeven").val(),
-
-                    $("#questionSeven").val()
-
-                ]   
+                ]
             }
-            console.log(newFriend);
+            
+            if ($("#name").val() === "" && $("#photo").val() === "")  {
+                alert ("Please enter all fields");
+                return false;
+            }
             for (var i = 0; i < newFriend.scores.length; i++) {
-                if ($("#name").val() === "" && $("#photo").val() === "" && newFriend.scores[i] === "Choose an option") {
+                if (newFriend.scores[i] === "Choose an option") {
                     alert("Please enter all fields");
                     return false;
                 }
             }
+            console.log(newFriend);
             var currentUrl = window.location.origin;
 
             $.post(currentUrl + "/api/friends", newFriend, function (data) {
@@ -205,12 +204,8 @@
                 $("#questionNine").val("Choose an option");
                 $("#questionTen").val("Choose an option");
             });
-            return false;
-
         });
     </script>
-
-
 </body>
 
 </html>
