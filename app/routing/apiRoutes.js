@@ -7,18 +7,31 @@ module.exports = function (app) {
     })
 
     app.post("/api/friends", function (req, res) {
-        
+
         var data = req.body;
-        //Comparison algorithm goes here.
 
-        //Loop through the data scores and convert the array from strings to numbers.
+        for (var i = 0; i < data.scores.length; i++) {
+            data.scores[i] = parseInt(data.scores[i]);
+        }
 
-        //Loop through both arrays, subtract the arrays from each other, get the absolute value using Math.abs(), and compare each of them.
+        var friendIndex = 0;
+        var minDiff = 40;
 
-        //The lowest number will correspond the friend in friends.js, and then send that data using res.json(friend) back to survey.html
+        for (var i = 0; i < friendsArray.length; i++) {
+            var totalDifference = 0;
+            for (var j = 0; j < friendsArray[i].scores.length; j++) {
+                var difference = Math.abs(data.scores[j] - friendsArray[i].scores[j]);
+                totalDifference += difference;
+            }
+            if(totalDifference < minDiff) {
+                friendIndex = i;
+                minDiff = totalDifference;
+              }
+            }
 
-        //Use that data to generate a modal with the friend name and picture
+
         friendsArray.push(data);
-        res.end();
+        console.log(friendsArray[friendIndex]);
+        res.json(friendsArray[friendIndex]);
     })
 }                                                                                                                                                                                                                                                                                                  
